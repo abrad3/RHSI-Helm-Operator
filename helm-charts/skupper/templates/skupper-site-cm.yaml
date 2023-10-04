@@ -1,0 +1,17 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skupper-site
+data:
+  name: "{{ .Release.Namespace }}"
+  console: "{{ .Values.console.enabled }}"
+  flow-collector: "{{ .Values.flowCollector.enabled }}"
+  console-authentication: "{{ .Values.console.auth }}"
+  ingress-host: "{{ .Values.common.ingress.domain }}"
+  ingress: "{{ .Values.common.ingressType }}"
+  routers: "{{ .Values.router.replicas }}"
+  router-mode: "{{ .Values.router.mode }}"
+  service-controller: "{{ .Values.serviceController.enabled }}"
+  disable-service-sync: "{{ .Values.serviceController.disableServiceSync }}"
+

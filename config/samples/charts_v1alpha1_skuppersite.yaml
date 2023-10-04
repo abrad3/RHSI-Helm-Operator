@@ -1,0 +1,94 @@
+apiVersion: charts.skupper.io/v1alpha1
+kind: SkupperSite
+metadata:
+  name: skuppersite-sample
+spec:
+  # Default values copied from <project_dir>/helm-charts/skupper/values.yaml
+  common:
+    ingress:
+      domain: apps.cluster-nfvvd.nfvvd.sandbox2523.opentlc.com
+    ingressType: route
+    siteconfigonly: false
+  configSync:
+    cpu:
+      limits: 100m
+      requests: 50m
+    image:
+      pullPolicy: IfNotPresent
+      repository: quay.io/skupper/config-sync
+      version: 1.4.2
+    memory:
+      limits: 256Mi
+      requests: 128Mi
+  console:
+    auth: unsecured
+    enabled: true
+  flowCollector:
+    cpu:
+      limits: 1
+      requests: 300m
+    enabled: true
+    image:
+      repository: quay.io/skupper/flow-collector
+      tag: 1.4.2
+    memory:
+      limits: 1Gi
+      requests: 1Gi
+  linkTokenCreate: true
+  prometheus:
+    cpu:
+      limits: 200m
+      requests: 200m
+    image:
+      repository: quay.io/prometheus/prometheus
+      version: v2.42.0
+    memory:
+      limits: 256Mi
+      requests: 256Mi
+  remoteSites:
+  - edgehost: remoteistedetails
+    interrouterhost: remoteistedetails
+    name: example-west
+  router:
+    annotations:
+      prometheus.io/port: "9090"
+      prometheus.io/scrape: "true"
+    cpu:
+      limits: 2
+      requests: 100m
+    image:
+      pullPolicy: IfNotPresent
+      repository: quay.io/skupper/skupper-router
+      version: 2.4.2
+    labels: {}
+    memory:
+      limits: 4Gi
+      requests: 2Gi
+    mode: interior
+    name: skupper-router
+    replicas: 1
+  secrets:
+  - skupper-claims-server
+  - skupper-local-client
+  - skupper-console-certs
+  - skupper-local-server
+  - skupper-service-client
+  - skupper-site-server
+  - skupper-link-token
+  - skupper-site-ca
+  selfSignedCerts: true
+  serviceController:
+    cpu:
+      limits: 100m
+      requests: 100m
+    disableServiceSync: false
+    enabled: true
+    image:
+      pullPolicy: IfNotPresent
+      repository: quay.io/skupper/service-controller
+      version: 1.4.2
+    memory:
+      limits: 256Mi
+      requests: 256Mi
+  
+  

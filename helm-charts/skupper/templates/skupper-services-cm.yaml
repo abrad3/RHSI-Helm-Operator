@@ -1,0 +1,7 @@
+{{ if not .Values.common.siteconfigonly }}
+apiVersion: v1
+data:
+kind: ConfigMap
+metadata:
+  name: skupper-services
+{{- end }}
