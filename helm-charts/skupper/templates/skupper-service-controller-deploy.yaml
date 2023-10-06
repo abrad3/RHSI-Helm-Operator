@@ -44,7 +44,7 @@ spec:
         - name: SKUPPER_SITE_NAME
           value: {{ .Release.Namespace }}
         - name: SKUPPER_SITE_ID
-          value: "abc"
+          value: {{ include "skupper.siteuid" .}}
         - name: SKUPPER_SERVICE_ACCOUNT
           value: skupper-router
         - name: SKUPPER_ROUTER_MODE
@@ -138,7 +138,7 @@ spec:
         - name: SKUPPER_SITE_NAME
           value: {{ .Release.Namespace }}
         - name: SKUPPER_SITE_ID
-          value: "abc"
+          value: {{ include "skupper.siteuid" .}}
         - name: SKUPPER_SERVICE_ACCOUNT
           value: skupper-router
         - name: SKUPPER_ROUTER_MODE

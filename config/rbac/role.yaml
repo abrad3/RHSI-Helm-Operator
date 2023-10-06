@@ -29,10 +29,10 @@ rules:
   - create
 
 ##
-## Rules for charts.skupper.io/v1alpha1, Kind: SkupperSite
+## Rules for skupper.io/v1alpha1, Kind: SkupperSite
 ##
 - apiGroups:
-  - charts.skupper.io
+  - skupper.io
   resources:
   - skuppersites
   - skuppersites/status

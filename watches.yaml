@@ -1,5 +1,5 @@
 # Use the 'create api' subcommand to add watches to this file.
-- group: charts.skupper.io
+- group: skupper.io
   version: v1alpha1
   kind: SkupperSite
   chart: helm-charts/skupper

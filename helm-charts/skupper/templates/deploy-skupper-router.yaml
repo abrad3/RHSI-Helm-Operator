@@ -40,7 +40,7 @@ spec:
         - name: APPLICATION_NAME
           value: skupper-router
         - name: SKUPPER_SITE_ID
-          value: "abc"
+          value: {{ include "skupper.siteuid" .}}
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:

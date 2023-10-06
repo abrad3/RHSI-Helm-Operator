@@ -24,14 +24,14 @@ admin: "YWRtaW4K"
 {{- end -}}
 {{- end -}}
 
-{{- /*
+
 {{- define "skupper.siteuid" -}}
-{{- $uid := lookup "v1alpha1" "SkupperSite" .Release.Namespace "skupper-site" -}}
+{{- $uid := lookup "skupper.io/v1alpha1" "SkupperSite" .Release.Namespace .Release.Name -}}
 {{- if $uid -}}
-{{- printf "%s" (lookup "v1" "ConfigMap" .Release.Namespace "skupper-site").metadata.uid }}
+{{- printf "%s" (lookup "skupper.io/v1alpha1" "SkupperSite" .Release.Namespace .Release.Name).metadata.uid }}
 {{- end -}}
 {{- end -}}
- /* }}
+
 {{/*
 skupper token labels and annotations for the link secret
 */}}

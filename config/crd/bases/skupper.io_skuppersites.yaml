@@ -2,9 +2,9 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: skuppersites.charts.skupper.io
+  name: skuppersites.skupper.io
 spec:
-  group: charts.skupper.io
+  group: skupper.io
   names:
     kind: SkupperSite
     listKind: SkupperSiteList

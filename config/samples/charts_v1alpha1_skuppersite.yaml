@@ -1,4 +1,4 @@
-apiVersion: charts.skupper.io/v1alpha1
+apiVersion: skupper.io/v1alpha1
 kind: SkupperSite
 metadata:
   name: skuppersite-sample
